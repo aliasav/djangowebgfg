@@ -3,7 +3,7 @@
 from django.contrib import admin
 from content.models import VocabItem
 
-
+# This model admin class registers VocabItem model with admin
 class VocabItemAdmin(admin.ModelAdmin):
     """
     Modeladmin for VocabItem
