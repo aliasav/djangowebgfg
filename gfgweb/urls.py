@@ -15,7 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import include, url
+
+'''
+https://dictionary.com -> nGinx settings
+Django doesn't care about your hosting
+'''
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    # content app urls
+    url(r'', include('content.urls')),
 ]
