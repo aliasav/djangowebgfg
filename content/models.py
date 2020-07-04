@@ -42,26 +42,10 @@ def process_datetime_to_string(this_date):
     return string
 
 
-def get_default_action_counts():
-    """
-    Returns dict of default action counts
-    """
-    default = {
-        'click': 0,
-        'like': 0,
-        'save': 0,
-        'share': 0,
-        'page-load-link': 0,
-    }
-    return default
-
-
 class VocabItem(models.Model):
-    '''Vocabulary Items
+    '''Vocabulary Item model
     '''
-    # guid = models.UUIDField(default=uuid.uuid4, editable=False, db_index=True)
-
-    # word (eng)
+    # word (eng): unique and indexed
     word = models.CharField(max_length=512, unique=True, db_index=True)
 
     # origin (eng)
@@ -100,17 +84,6 @@ class VocabItem(models.Model):
     # flag to mark if this vocab item should be used
     is_live = models.BooleanField(default=True)
 
-    # score: function of actions, time decay and editorial bias
-    # score = models.FloatField(default=0, null=True, blank=True)
-
-    # editorial bias: used to grant higher scores to items
-    # editorial_bias = models.FloatField(default=0, null=True, blank=True)
-
-    # counts of actions on this item
-    # maintains a dict of counts of each item
-    # ever action updates counts in this json field
-    # action_counts = JSONField(default=get_default_action_counts, null=True, blank=True)
-
     # timestamp fields
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -147,108 +120,3 @@ class VocabItem(models.Model):
         data['sentences'] = sentences
 
         return data
-
-
-# class Blog(models.Model):
-#     '''Blog posts
-#     '''
-#     # article title
-#     title = models.TextField(null=True, blank=False)
-
-#     # slug title filled by admins
-#     slug_title = models.CharField(max_length=255, null=True, blank=False)
-
-#     # auto generated slug field
-#     slug = models.SlugField(max_length=255, null=True, blank=False,
-#                             unique=True)
-
-#     # description of the item
-#     description = models.TextField(null=True, blank=True)
-
-#     # actual content of the item
-#     content = models.TextField(null=True, blank=False)
-
-#     # read time of article in seconds
-#     read_time_value = models.IntegerField(default=0, null=True, blank=True)
-
-#     # author of the blog post
-#     author = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL)
-
-#     # associated categories of the item
-#     category = ArrayField(models.CharField(max_length=100, null=True, blank=True), default=list)
-
-#     # many-to-many field with vocab items
-#     vocab_items = models.ManyToManyField('VocabItem', null=True, blank=True)
-
-#     # flag to mark if this vocab item should be used
-#     is_live = models.BooleanField(default=True)
-
-#     # score: function of actions, time decay and editorial bias
-#     score = models.FloatField(default=0, null=True, blank=True)
-
-#     # editorial bias: used to grant higher scores to items
-#     editorial_bias = models.FloatField(default=0, null=True, blank=True)
-
-#     # mark for vocab item extraction
-#     mark_for_update = models.BooleanField(default=True)
-
-#     # language choices
-#     INTERNAL_BLOG = 1
-#     INTERVIEW_EXP = 2
-#     PROMO_BLOG = 3
-#     BLOG_TYPES = (
-#         (INTERNAL_BLOG, 'Internal blog'),
-#         (INTERVIEW_EXP, 'Interview experience blog'),
-#         (PROMO_BLOG, 'Promotional blog'),
-#     )
-#     # type of blog
-#     blog_type = models.IntegerField(default=INTERNAL_BLOG,
-#                                     choices=BLOG_TYPES, null=True, blank=True)
-
-#     # timestamp fields
-#     created_at = models.DateTimeField(auto_now_add=True)
-#     updated_at = models.DateTimeField(auto_now=True)
-
-#     def __str__(self):
-#         return 'Blog: {0}<-->{1}'.format(self.id, self.slug_title)
-
-#     def get_absolute_url(self):
-#         absolute_url = '/blog/' + str(self.id)
-#         if self.slug:
-#             absolute_url = '/blog/' + self.slug
-#         return absolute_url
-
-#     def get_json(self, user=None):
-#         '''
-#         return json dict of item
-#         adds action flags if user is present
-#         '''
-#         data = {
-#             'id': self.id,
-#             'slug': self.slug,
-#             'slug_title': self.slug_title,
-#             'title': self.title,
-#             'content': self.content,
-#             'description':self.description,
-#             'score': self.score,
-#             'read_time': 1,
-#             'read_time_value': self.read_time_value,
-#             'category': self.category,
-#             'created_at': process_datetime_to_string(self.created_at),
-#         }
-#         total_views = 0
-#         for a in self.action_counts:
-#             total_views += self.action_counts[a]
-#         data['total_views'] = total_views
-#         if self.read_time_value:
-#             data['read_time'] = int(self.read_time_value / 60)
-#         data['vocab_items'] = [vi.get_json(user) for vi in self.vocab_items.all()]
-
-#         if self.author:
-#             socialaccount = self.author.socialaccount_set.first()
-#             data['author'] = {'name': self.author.username}
-#             if socialaccount:
-#                 data['author']['image'] = socialaccount.extra_data['picture']
-#                 data['author']['name'] = socialaccount.extra_data['name']
-
-#         return data
