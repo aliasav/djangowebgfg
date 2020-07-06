@@ -39,3 +39,11 @@ def word_view(request, word=None):
             'data': word.get_json()
         }
     return render(request, template, context)
+
+def search_view(request, word=None):
+    ''' renders a dictionary page
+    ::word: passed in the URL as a param
+    '''
+    template = 'search.html' # template to load
+    context = {}
+    return render(request, template, context)

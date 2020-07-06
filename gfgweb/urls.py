@@ -27,4 +27,6 @@ urlpatterns = [
 
     # content app urls
     url(r'', include('content.urls')),
+
+    url(r'^api-auth/', include('rest_framework.urls')),
 ]
