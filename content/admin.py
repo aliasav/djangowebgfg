@@ -10,6 +10,6 @@ class VocabItemAdmin(admin.ModelAdmin):
     """
     list_display = ("word", "meaning", "pos", "created_at", "updated_at")
     search_fields = ["guid", "word"]
-    readonly_fields = ['sentences', 'created_at', 'updated_at',]
+    readonly_fields = ['created_at', 'updated_at',]
 
 admin.site.register(VocabItem, VocabItemAdmin)

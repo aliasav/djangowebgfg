@@ -19,9 +19,10 @@ urlpatterns = [
     url(r'^search/$', views.search_view),
 
     # GET api for vocab item
-    url(r'^_api/v1/dictionary/(?P<word>\w+)$', api.vocab_item_detail),
+    # url(r'^_api/v1/dictionary/(?P<word>\w+)$', api.vocab_item_detail),
 
-    # url(r'^_api/v1/dictionary/(?P<word>\w+)$', api.VocabItemDetailAPI.as_view()),
     # POST api for vocab item
-    # url(r'^_api/v1/delete-dictionary/$', api.vocab_item_delete),
+    # url(r'^_api/v1/update/$', api.vocab_item_update),
+    url(r'^_api/v1/dictionary/(?P<word>\w+)$', api.VocabItemDetailAPI.as_view()),
+    url(r'^_api/v1/update/$', api.VocabItemDetailAPI.as_view()),
 ]

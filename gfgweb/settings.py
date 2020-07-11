@@ -175,6 +175,49 @@ STATICFILES_DIRS = (
 
 STATIC_URL = '/static/'
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': BASE_DIR + '/debug.log',
+            'formatter': 'verbose',
+        },
+    },
+    'formatters': {
+        'verbose': {
+            'format': '[%(asctime)s] %(levelname)s [%(name)s:%(funcName)s:%(lineno)s] --- %(message)s',
+            'datefmt': "%d/%b/%Y %H:%M:%S"
+        },
+        'simple': {
+            'format': '%(levelname)s|%(message)s'
+        },
+    },
+    'loggers': {
+        'django.request': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+            'formatter': 'verbose',
+        },
+        'content': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+            'formatter': 'verbose',
+        },
+        'utils': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+            'formatter': 'verbose',
+        },
+    },
+}
+
+
 try:
     print('Importing settings local file')
     from gfgweb.settings_local import *

@@ -15,5 +15,5 @@ function fetchWord(){
         success: function(data){
             console.log(data);
         },
-    })
+    });
 }
