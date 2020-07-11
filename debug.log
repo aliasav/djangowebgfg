@@ -1,0 +1,402 @@
+[11/Jul/2020 08:25:50] ERROR [django.request:handle_uncaught_exception:118] --- Internal Server Error: /admin/content/vocabitem/
+Traceback (most recent call last):
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.ProgrammingError: relation "content_blog_vocab_items" does not exist
+LINE 1: ...reated_at", "content_vocabitem"."updated_at" FROM "content_b...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/contrib/admin/options.py", line 574, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/views/decorators/cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/contrib/admin/sites.py", line 223, in inner
+    return view(request, *args, **kwargs)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/utils/decorators.py", line 62, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/utils/decorators.py", line 58, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/contrib/admin/options.py", line 1596, in changelist_view
+    response = self.response_action(request, queryset=cl.get_queryset(request))
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/contrib/admin/options.py", line 1330, in response_action
+    response = func(self, request, queryset)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/contrib/admin/actions.py", line 36, in delete_selected
+    queryset, opts, request.user, modeladmin.admin_site, using)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/contrib/admin/utils.py", line 131, in get_deleted_objects
+    collector.collect(objs)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/contrib/admin/utils.py", line 195, in collect
+    return super().collect(objs, source_attr=source_attr, **kwargs)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/db/models/deletion.py", line 221, in collect
+    elif sub_objs:
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/db/models/query.py", line 276, in __bool__
+    self._fetch_all()
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/db/models/query.py", line 1179, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/db/models/query.py", line 54, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1063, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "content_blog_vocab_items" does not exist
+LINE 1: ...reated_at", "content_vocabitem"."updated_at" FROM "content_b...
+                                                             ^
+
+[11/Jul/2020 08:25:56] WARNING [django.request:get_response:93] --- Not Found: /favicon.ico
+[11/Jul/2020 08:27:11] ERROR [django.request:handle_uncaught_exception:118] --- Internal Server Error: /admin/content/vocabitem/
+Traceback (most recent call last):
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.ProgrammingError: relation "content_blog_vocab_items" does not exist
+LINE 1: ...reated_at", "content_vocabitem"."updated_at" FROM "content_b...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/contrib/admin/options.py", line 574, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/views/decorators/cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/contrib/admin/sites.py", line 223, in inner
+    return view(request, *args, **kwargs)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/utils/decorators.py", line 62, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/utils/decorators.py", line 58, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/contrib/admin/options.py", line 1596, in changelist_view
+    response = self.response_action(request, queryset=cl.get_queryset(request))
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/contrib/admin/options.py", line 1330, in response_action
+    response = func(self, request, queryset)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/contrib/admin/actions.py", line 36, in delete_selected
+    queryset, opts, request.user, modeladmin.admin_site, using)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/contrib/admin/utils.py", line 131, in get_deleted_objects
+    collector.collect(objs)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/contrib/admin/utils.py", line 195, in collect
+    return super().collect(objs, source_attr=source_attr, **kwargs)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/db/models/deletion.py", line 221, in collect
+    elif sub_objs:
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/db/models/query.py", line 276, in __bool__
+    self._fetch_all()
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/db/models/query.py", line 1179, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/db/models/query.py", line 54, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1063, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "content_blog_vocab_items" does not exist
+LINE 1: ...reated_at", "content_vocabitem"."updated_at" FROM "content_b...
+                                                             ^
+
+[11/Jul/2020 08:40:04] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/cabin.png
+[11/Jul/2020 08:40:04] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/game.png
+[11/Jul/2020 08:40:04] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/circus.png
+[11/Jul/2020 08:40:04] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/cake.png
+[11/Jul/2020 08:40:04] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/safe.png
+[11/Jul/2020 08:40:04] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/submarine.png
+[11/Jul/2020 08:46:29] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/cabin.png
+[11/Jul/2020 08:46:29] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/cake.png
+[11/Jul/2020 08:46:29] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/circus.png
+[11/Jul/2020 08:46:29] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/game.png
+[11/Jul/2020 08:46:29] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/submarine.png
+[11/Jul/2020 08:46:29] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/safe.png
+[11/Jul/2020 09:02:45] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/cabin.png
+[11/Jul/2020 09:02:45] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/cake.png
+[11/Jul/2020 09:02:45] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/circus.png
+[11/Jul/2020 09:02:45] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/submarine.png
+[11/Jul/2020 09:02:45] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/safe.png
+[11/Jul/2020 09:02:45] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/game.png
+[11/Jul/2020 09:10:27] DEBUG [content.views:word_view:39] --- loading the word view
+[11/Jul/2020 09:10:27] INFO [content.views:word_view:40] --- loading the word view
+[11/Jul/2020 09:10:27] WARNING [content.views:word_view:41] --- loading the word view
+[11/Jul/2020 09:10:27] ERROR [content.views:word_view:42] --- loading the word view
+[11/Jul/2020 09:10:27] CRITICAL [content.views:word_view:43] --- loading the word view
+[11/Jul/2020 09:10:27] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/cabin.png
+[11/Jul/2020 09:10:27] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/circus.png
+[11/Jul/2020 09:10:27] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/cake.png
+[11/Jul/2020 09:10:27] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/safe.png
+[11/Jul/2020 09:10:27] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/game.png
+[11/Jul/2020 09:10:27] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/submarine.png
+[11/Jul/2020 09:10:42] DEBUG [content.views:word_view:39] --- loading the word view
+[11/Jul/2020 09:10:42] INFO [content.views:word_view:40] --- loading the word view
+[11/Jul/2020 09:10:42] WARNING [content.views:word_view:41] --- loading the word view
+[11/Jul/2020 09:10:42] ERROR [content.views:word_view:42] --- loading the word view
+[11/Jul/2020 09:10:42] CRITICAL [content.views:word_view:43] --- loading the word view
+[11/Jul/2020 09:10:43] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/safe.png
+[11/Jul/2020 09:10:43] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/cabin.png
+[11/Jul/2020 09:10:43] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/submarine.png
+[11/Jul/2020 09:10:43] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/circus.png
+[11/Jul/2020 09:10:43] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/game.png
+[11/Jul/2020 09:10:43] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/cake.png
+[11/Jul/2020 09:13:15] DEBUG [content.views:word_view:38] --- word: smell
+[11/Jul/2020 09:13:15] WARNING [content.views:word_view:39] --- loading the word view
+[11/Jul/2020 09:13:15] ERROR [content.views:word_view:40] --- loading the word view
+[11/Jul/2020 09:13:15] CRITICAL [content.views:word_view:41] --- loading the word view
+[11/Jul/2020 09:13:15] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/cabin.png
+[11/Jul/2020 09:13:15] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/cake.png
+[11/Jul/2020 09:13:15] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/circus.png
+[11/Jul/2020 09:13:15] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/safe.png
+[11/Jul/2020 09:13:15] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/game.png
+[11/Jul/2020 09:13:15] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/submarine.png
+[11/Jul/2020 09:14:03] DEBUG [content.views:word_view:38] --- word: asdasda
+[11/Jul/2020 09:14:03] WARNING [content.views:word_view:39] --- loading the word view
+[11/Jul/2020 09:14:03] ERROR [content.views:word_view:40] --- loading the word view
+[11/Jul/2020 09:14:03] CRITICAL [content.views:word_view:41] --- loading the word view
+[11/Jul/2020 09:14:03] WARNING [content.views:word_view:51] --- word not found in dict: asdasda
+[11/Jul/2020 09:14:04] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/cabin.png
+[11/Jul/2020 09:14:04] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/cake.png
+[11/Jul/2020 09:14:04] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/circus.png
+[11/Jul/2020 09:14:04] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/game.png
+[11/Jul/2020 09:14:04] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/safe.png
+[11/Jul/2020 09:14:04] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/submarine.png
+[11/Jul/2020 09:15:28] ERROR [django.request:handle_uncaught_exception:118] --- Internal Server Error: /dictionary/asdasda
+Traceback (most recent call last):
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/aliasav/batcave/gfg/gfgweb/content/views.py", line 35, in word_view
+    word_qset = VocabItem.objects.get(word=word)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/db/models/query.py", line 403, in get
+    self.model._meta.object_name
+content.models.DoesNotExist: VocabItem matching query does not exist.
+[11/Jul/2020 09:15:28] ERROR [django.request:handle_uncaught_exception:118] --- Internal Server Error: /dictionary/asdasda
+Traceback (most recent call last):
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/aliasav/batcave/gfg/gfgweb/content/views.py", line 35, in word_view
+    word_qset = VocabItem.objects.get(word=word)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/db/models/query.py", line 403, in get
+    self.model._meta.object_name
+content.models.DoesNotExist: VocabItem matching query does not exist.
+[11/Jul/2020 09:16:55] ERROR [content.views:word_view:38] --- exception in get query: VocabItem matching query does not exist.
+[11/Jul/2020 09:16:55] ERROR [django.request:handle_uncaught_exception:118] --- Internal Server Error: /dictionary/asdasda
+Traceback (most recent call last):
+  File "/Users/aliasav/batcave/gfg/gfgweb/content/views.py", line 36, in word_view
+    word_qset = VocabItem.objects.get(word=word)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/db/models/query.py", line 403, in get
+    self.model._meta.object_name
+content.models.DoesNotExist: VocabItem matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/aliasav/batcave/gfg/gfgweb/content/views.py", line 39, in word_view
+    return render(request, '404.html', context)
+UnboundLocalError: local variable 'context' referenced before assignment
+[11/Jul/2020 09:17:56] ERROR [content.views:word_view:38] --- exception in get query: VocabItem matching query does not exist.
+[11/Jul/2020 09:17:56] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/cabin.png
+[11/Jul/2020 09:17:56] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/cake.png
+[11/Jul/2020 09:17:56] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/circus.png
+[11/Jul/2020 09:17:56] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/game.png
+[11/Jul/2020 09:17:56] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/safe.png
+[11/Jul/2020 09:17:56] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/submarine.png
+[11/Jul/2020 09:23:30] ERROR [django.request:handle_uncaught_exception:118] --- Internal Server Error: /dictionary/asdasda
+Traceback (most recent call last):
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/aliasav/batcave/gfg/gfgweb/content/views.py", line 35, in word_view
+    word_qset = VocabItem.objects.get(word=word)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/db/models/query.py", line 403, in get
+    self.model._meta.object_name
+content.models.DoesNotExist: VocabItem matching query does not exist.
+[11/Jul/2020 09:23:59] ERROR [content.views:word_view:41] --- exception in get query: VocabItem matching query does not exist.
+[11/Jul/2020 09:23:59] DEBUG [content.views:word_view:46] --- word: asdasda
+[11/Jul/2020 09:23:59] CRITICAL [content.views:word_view:47] --- word: asdasda
+[11/Jul/2020 09:23:59] ERROR [django.request:handle_uncaught_exception:118] --- Internal Server Error: /dictionary/asdasda
+Traceback (most recent call last):
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/aliasav/batcave/gfg/gfgweb/content/views.py", line 50, in word_view
+    if word_qset:
+UnboundLocalError: local variable 'word_qset' referenced before assignment
+[11/Jul/2020 09:24:00] ERROR [content.views:word_view:41] --- exception in get query: VocabItem matching query does not exist.
+[11/Jul/2020 09:24:00] DEBUG [content.views:word_view:46] --- word: asdasda
+[11/Jul/2020 09:24:00] CRITICAL [content.views:word_view:47] --- word: asdasda
+[11/Jul/2020 09:24:00] ERROR [django.request:handle_uncaught_exception:118] --- Internal Server Error: /dictionary/asdasda
+Traceback (most recent call last):
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/aliasav/batcave/gfg/gfgweb/content/views.py", line 50, in word_view
+    if word_qset:
+UnboundLocalError: local variable 'word_qset' referenced before assignment
+[11/Jul/2020 09:24:14] ERROR [django.request:handle_uncaught_exception:118] --- Internal Server Error: /dictionary/asdasda
+Traceback (most recent call last):
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/aliasav/batcave/gfg/gfgweb/content/views.py", line 37, in word_view
+    word_qset = None
+NameError: name 'N' is not defined
+[11/Jul/2020 09:24:34] ERROR [content.views:word_view:42] --- exception in get query: VocabItem matching query does not exist.
+[11/Jul/2020 09:24:34] DEBUG [content.views:word_view:47] --- word: asdasda
+[11/Jul/2020 09:24:34] CRITICAL [content.views:word_view:48] --- word: asdasda
+[11/Jul/2020 09:24:34] WARNING [content.views:word_view:58] --- word not found in dict: asdasda
+[11/Jul/2020 09:24:35] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/cabin.png
+[11/Jul/2020 09:24:35] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/circus.png
+[11/Jul/2020 09:24:35] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/cake.png
+[11/Jul/2020 09:24:35] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/submarine.png
+[11/Jul/2020 09:24:35] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/safe.png
+[11/Jul/2020 09:24:35] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/game.png
+[11/Jul/2020 10:28:15] WARNING [django.request:get_response:93] --- Not Found: /favicon.ico
+[11/Jul/2020 10:29:12] WARNING [django.request:get_response:93] --- Not Found: /admin/content/vocabitem/5/change/
+[11/Jul/2020 10:29:13] WARNING [django.request:get_response:93] --- Not Found: /admin/content/vocabitem/
+[11/Jul/2020 10:42:26] ERROR [django.request:handle_uncaught_exception:118] --- Internal Server Error: /_api/v1/update/
+Traceback (most recent call last):
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/rest_framework/views.py", line 495, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/rest_framework/views.py", line 455, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/rest_framework/views.py", line 492, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/rest_framework/decorators.py", line 54, in handler
+    return func(*args, **kwargs)
+  File "/Users/aliasav/batcave/gfg/gfgweb/content/api.py", line 50, in vocab_item_update
+    logger.debug('vocab_item_update is called!')
+NameError: name 'logger' is not defined
+[11/Jul/2020 10:42:30] ERROR [django.request:handle_uncaught_exception:118] --- Internal Server Error: /_api/v1/update/
+Traceback (most recent call last):
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/rest_framework/views.py", line 495, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/rest_framework/views.py", line 455, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/rest_framework/views.py", line 492, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/aliasav/batcave/pfg-backend/venv/lib/python3.7/site-packages/rest_framework/decorators.py", line 54, in handler
+    return func(*args, **kwargs)
+  File "/Users/aliasav/batcave/gfg/gfgweb/content/api.py", line 50, in vocab_item_update
+    logger.debug('vocab_item_update is called!')
+NameError: name 'logger' is not defined
+[11/Jul/2020 10:42:47] DEBUG [content.api:vocab_item_update:50] --- vocab_item_update is called!
+[11/Jul/2020 10:42:49] DEBUG [content.api:vocab_item_update:50] --- vocab_item_update is called!
+[11/Jul/2020 10:43:56] DEBUG [content.api:vocab_item_update:50] --- vocab_item_update is called!
+[11/Jul/2020 10:43:56] DEBUG [content.api:vocab_item_update:51] --- <QueryDict: {}>
+[11/Jul/2020 10:44:34] DEBUG [content.api:vocab_item_update:53] --- vocab_item_update is called!
+[11/Jul/2020 10:44:34] DEBUG [content.api:vocab_item_update:54] --- request.POST: <QueryDict: {}>
+[11/Jul/2020 10:44:34] DEBUG [content.api:vocab_item_update:55] --- request.data: {'word': 'small'}
+[11/Jul/2020 10:44:35] DEBUG [content.api:vocab_item_update:53] --- vocab_item_update is called!
+[11/Jul/2020 10:44:35] DEBUG [content.api:vocab_item_update:54] --- request.POST: <QueryDict: {}>
+[11/Jul/2020 10:44:35] DEBUG [content.api:vocab_item_update:55] --- request.data: {'word': 'small'}
+[11/Jul/2020 11:06:45] DEBUG [content.views:word_view:39] --- request.path: /dictionary/asdasda
+[11/Jul/2020 11:06:45] ERROR [content.views:word_view:44] --- exception in get query: VocabItem matching query does not exist.
+[11/Jul/2020 11:06:45] WARNING [content.views:word_view:57] --- word not found in dict: asdasda
+[11/Jul/2020 11:06:46] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/cake.png
+[11/Jul/2020 11:06:46] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/cabin.png
+[11/Jul/2020 11:06:46] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/circus.png
+[11/Jul/2020 11:06:46] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/game.png
+[11/Jul/2020 11:06:46] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/submarine.png
+[11/Jul/2020 11:06:46] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/safe.png
+[11/Jul/2020 11:08:01] DEBUG [content.views:word_view:39] --- request.path: /dictionary/word
+[11/Jul/2020 11:08:01] ERROR [content.views:word_view:44] --- exception in get query: VocabItem matching query does not exist.
+[11/Jul/2020 11:08:01] WARNING [content.views:word_view:57] --- word not found in dict: word
+[11/Jul/2020 11:08:01] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/cabin.png
+[11/Jul/2020 11:08:01] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/circus.png
+[11/Jul/2020 11:08:01] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/cake.png
+[11/Jul/2020 11:08:01] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/game.png
+[11/Jul/2020 11:08:01] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/safe.png
+[11/Jul/2020 11:08:01] WARNING [django.request:get_response:93] --- Not Found: /dictionary/img/portfolio/submarine.png
+[11/Jul/2020 11:19:05] DEBUG [content.api:get:76] --- GET APIView class for rancid
+[11/Jul/2020 11:19:08] DEBUG [content.api:get:76] --- GET APIView class for rancid
+[11/Jul/2020 11:22:41] DEBUG [content.api:post:100] --- POST API View: {'word': 'small'}
