@@ -38,7 +38,7 @@ django-storages==1.7.1
 django-summernote==0.8.11.4
 django-timezone-field==3.0
 django-tinymce==2.8.0
-djangorestframework==3.9.0
+djangorestframework==3.11.2
 djangorestframework-jwt==1.11.0
 docutils==0.14
 et-xmlfile==1.0.1
